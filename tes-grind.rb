@@ -37,7 +37,7 @@ pcorigin = gets.chomp.capitalize
 
 if pcclass.downcase == "stealth archer" || pcclass.downcase == "thief" || pcclass.downcase == "assassin" || pcclass.downcase == "rogue"
   puts
-  puts "'Nice, a #{pcclass.downcase}? Sneaky!!'"
+  puts "'Wow, a #{pcclass.downcase}? Sneaky!!'"
 
 elsif pcclass.downcase == "archer"
   puts
@@ -55,6 +55,34 @@ else
   puts "'A #{pcclass.downcase}? That's a new one for me. Well, whatever you are, I hope it serves us well. We need to get off this blasted ship..'"
 end 
 #this if/else statement gives different responses from Rurik depending on your class
-  
+
   puts
-  puts "Suddenly, the ship lurches violently, and you are thrown to the wall of your cell. "
+  puts "Suddenly, the ship lurches violently, and you are thrown to the wall of your cell. A rush of water and debris suddenly gushes into the hallway with tremendous force. "
+  puts
+  puts "'Woah #{name}, you alright?' You open your eyes and see a tall, dark-haired Nord standing before you with an outstretched hand. 
+'Looks like the walls of our cells were broken, and I think I can use this metal piece to pry the cell bars apart.'"
+  puts
+  puts "In an incredible feat of strength, Rurik wedges the metal piece into the iron bars and pries them apart."
+  puts
+  puts "'This should be enough to squeeze out. You lead the way #{name}, we need to make it to the captains quarters. It'll be safer there.'"
+
+  if pcclass.downcase == "stealth archer" || pcclass.downcase == "thief" || pcclass.downcase == "assassin" || pcclass.downcase == "rogue"
+    puts
+    puts "After you and Rurik squeeze out of the cell, he picks up a rusty iron dagger from the ground and hands it to you. 'This should serve, for now at least. Let's get out of here!'"
+  
+  elsif pcclass.downcase == "archer"
+    puts
+    puts "After you and Rurik squeeze out of the cell, he picks up a water-logged wooden bow from the ground and hands it to you. 'This should serve, for now at least. 
+Keep an eye out for some arrows. Let's get out of here!'"
+  
+  elsif pcclass.downcase == "warrior" || pcclass.downcase == "fighter" || pcclass.downcase == "knight"
+    puts
+    puts "After you and Rurik squeeze out of the cell, he picks up a rusty iron mace from the ground and hands it to you. 'This should serve, for now at least. Let's get out of here!'"
+  elsif pcclass.downcase == "mage" || pcclass.downcase == "sorcerer" || pcclass.downcase == "wizard"
+    puts
+    puts "After you and Rurik squeeze out of the cell, he picks up a Restore Magicka potion from a nearby shelf and hands it to you. 'This should help you feel better. Let's get out of here!'"
+
+  else 
+    puts "After you and Rurik squeeze out of the cell, he picks up an iron sword. 'This should serve for now. Let's get out of here!'"
+    end 
+  #this if/else statement looks at the player class variable and has Rurik give the PC a different weapon or item depending on the class. Classic TES! 
