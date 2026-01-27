@@ -80,9 +80,11 @@ Keep an eye out for some arrows. Let's get out of here!'"
     puts "After you and Rurik squeeze out of the cell, he picks up a rusty iron mace from the ground and hands it to you. 'This should serve, for now at least. Let's get out of here!'"
   elsif pcclass.downcase == "mage" || pcclass.downcase == "sorcerer" || pcclass.downcase == "wizard"
     puts
-    puts "After you and Rurik squeeze out of the cell, he picks up a Restore Magicka potion from a nearby shelf and hands it to you. 'This should help you feel better. Let's get out of here!'"
+    puts "After you and Rurik squeeze out of the cell, he picks up a splintering magical staff from a nearby floating shelf and hands it to you. 'This should serve for now. Let's get out of here!'"
 
   else 
     puts "After you and Rurik squeeze out of the cell, he picks up an iron sword. 'This should serve for now. Let's get out of here!'"
     end 
   #this if/else statement looks at the player class variable and has Rurik give the PC a different weapon or item depending on the class. Classic TES! 
+  #In the future this could become the spot where a combat tutorial occurs
+  #The item that Rurik gives the player should be an actual object stored in inventory with damage or restoration stats eventually. 
