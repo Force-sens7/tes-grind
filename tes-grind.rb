@@ -70,9 +70,9 @@ end
     puts
     puts "After you and Rurik squeeze out of the cell, he picks up a rusty iron dagger from the ground and hands it to you. 'This should serve, for now at least. Let's get out of here!'"
   
-  elsif pcclass.downcase == "archer"
+  elsif pcclass.downcase == "archer" || pcclass.downcase == "ranger"
     puts
-    puts "After you and Rurik squeeze out of the cell, he picks up a water-logged wooden bow from the ground and hands it to you. 'This should serve, for now at least. 
+    puts "After you and Rurik squeeze out of the cell, he picks up a water-logged wooden bow and a few arrows from the ground and hands it to you. 'This should serve, for now at least. 
 Keep an eye out for some arrows. Let's get out of here!'"
   
   elsif pcclass.downcase == "warrior" || pcclass.downcase == "fighter" || pcclass.downcase == "knight"
@@ -84,7 +84,9 @@ Keep an eye out for some arrows. Let's get out of here!'"
 
   else 
     puts "After you and Rurik squeeze out of the cell, he picks up an iron sword. 'This should serve for now. Let's get out of here!'"
-    end 
+  end 
   #this if/else statement looks at the player class variable and has Rurik give the PC a different weapon or item depending on the class. Classic TES! 
   #In the future this could become the spot where a combat tutorial occurs
   #The item that Rurik gives the player should be an actual object stored in inventory with damage or restoration stats eventually. 
+  #
+  
