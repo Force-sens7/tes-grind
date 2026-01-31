@@ -2,7 +2,14 @@ puts "Welcome to TES Grind, an unofficial The Elder Scrolls experience!"
 
 puts "Please enter your name: "
 
+devmode = false
 name = gets.chomp.capitalize
+if name == "Dev"
+  puts "Dev mode activated"
+  devmode = true
+  puts "Player Name:"
+  name = gets.chomp.capitalize.strip
+end
 #takes name from user input, assigns to variable, capitalizes it
 puts
 puts "#{name}, you are a prisoner on an Imperial prison ship, sailing somewhere along the outskirts of Tamriel."
@@ -19,7 +26,7 @@ puts "'Pleasure to meet ya', #{name}!'"
 puts
 puts "'Whereabouts are you from then?'"
 
-pcorigin = gets.chomp.capitalize
+pcorigin = gets.chomp.capitalize.strip
 #takes player origin from user input, assigns to variable, capitalizes it
 
   if pcorigin.downcase == "skyrim"
@@ -70,9 +77,9 @@ end
     puts
     puts "After you and Rurik squeeze out of the cell, he picks up a rusty iron dagger from the ground and hands it to you. 'This should serve, for now at least. Let's get out of here!'"
   
-  elsif pcclass.downcase == "archer"
+  elsif pcclass.downcase == "archer" || pcclass.downcase == "ranger"
     puts
-    puts "After you and Rurik squeeze out of the cell, he picks up a water-logged wooden bow from the ground and hands it to you. 'This should serve, for now at least. 
+    puts "After you and Rurik squeeze out of the cell, he picks up a water-logged wooden bow and a few arrows from the ground and hands it to you. 'This should serve, for now at least. 
 Keep an eye out for some arrows. Let's get out of here!'"
   
   elsif pcclass.downcase == "warrior" || pcclass.downcase == "fighter" || pcclass.downcase == "knight"
@@ -84,7 +91,31 @@ Keep an eye out for some arrows. Let's get out of here!'"
 
   else 
     puts "After you and Rurik squeeze out of the cell, he picks up an iron sword. 'This should serve for now. Let's get out of here!'"
-    end 
+  end 
   #this if/else statement looks at the player class variable and has Rurik give the PC a different weapon or item depending on the class. Classic TES! 
   #In the future this could become the spot where a combat tutorial occurs
   #The item that Rurik gives the player should be an actual object stored in inventory with damage or restoration stats eventually. 
+  
+  loop do
+    
+    puts "
+    Main Menu
+      1. Woodcutting
+      2. Exit
+    "
+    selection = gets.chomp.strip
+  
+    if selection == "1" || selection == "1."
+        puts "Coming soon!"
+    elsif selection == "2" || selection == "2."
+        puts "Goodbye!"
+        puts
+        exit
+    else puts "Please input a numerical menu option"
+      if devmode == true 
+        puts "You sussy baka!"
+        # example of a dev mode dependant conditional 
+      end
+    end
+#main menu with loop
+end
