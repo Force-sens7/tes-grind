@@ -2,28 +2,42 @@ puts "Welcome to TES Grind, an unofficial The Elder Scrolls experience!"
 
 puts "Please enter your name: "
 
+text_delay = 3.5
 devmode = false
 name = gets.chomp.capitalize
 if name == "Dev"
-  puts "Dev mode activated"
   devmode = true
+  puts "Dev mode activated"
+  text_delay = 1
   puts "Player Name:"
   name = gets.chomp.capitalize.strip
 end
+if name == "Josie" || name == "Jos" || name == "Sicilian Baby" || name == "Josephine"
+  puts "Hello my beautiful wife! Thanks for testing this game for me :) Love you!"
+elsif name == "Emmy" || name == "Emilia" || name == "Em" 
+  puts "Hello my beautiful child! Thanks for testing this game for me! :) Love you!"
+end
 #takes name from user input, assigns to variable, capitalizes it
+sleep(text_delay)
 puts
 puts "#{name}, you are a prisoner on an Imperial prison ship, sailing somewhere along the outskirts of Tamriel."
 puts
+sleep(text_delay)
 puts "You are unsure how you ended up here, as you have no recollection of the past few days. Even memories from prior are currently a hazy blur."
 puts
+sleep(text_delay)
 puts "As you struggle to recall what led you to this moment, you hear a booming voice from the cell next to yours."
 puts 
+sleep(text_delay)
 puts "'Hey, you there! The name's Rurik.....and you are?'"
 puts 
+sleep(text_delay)
 puts "..."
 puts
+sleep(text_delay)
 puts "'Pleasure to meet ya', #{name}!'"
 puts
+sleep(text_delay)
 puts "'Whereabouts are you from then?'"
 
 pcorigin = gets.chomp.capitalize.strip
@@ -38,13 +52,13 @@ pcorigin = gets.chomp.capitalize.strip
   end 
 
   puts
-  puts "'Say, what class are you? I'm a bit of a thief myself, though I bet I look the fool considering I got myself locked up here. I'm not the quietest unfortunately, try as I might...'"
-  pcclass = gets.chomp.capitalize
+  puts "'Say, what class are you? I'm a bit of a thief myself, though I bet I look the fool considering I got myself locked up here. I'm not the most quiet person unfortunately, try as I might...'"
+  pcclass = gets.chomp.capitalize.strip
 #takes player class from user input, assigns to variable
 
 if pcclass.downcase == "stealth archer" || pcclass.downcase == "thief" || pcclass.downcase == "assassin" || pcclass.downcase == "rogue"
   puts
-  puts "'Wow, a #{pcclass.downcase}? Sneaky!!'"
+  puts "'Wow, a #{pcclass.downcase}? Great minds think alike, sneaky!'"
 
 elsif pcclass.downcase == "archer"
   puts
@@ -96,6 +110,15 @@ Keep an eye out for some arrows. Let's get out of here!'"
   #In the future this could become the spot where a combat tutorial occurs
   #The item that Rurik gives the player should be an actual object stored in inventory with damage or restoration stats eventually. 
   
+
+  # DEFINE SKILL VARIABLES HERE!! 
+  # !!!!!!!!!!
+  wood = 0
+  woodcuttingLevel = 1
+  charLevel = 1
+  woodcuttingXP = 0
+  charXP = 0
+
   loop do
     
     puts "
@@ -106,7 +129,19 @@ Keep an eye out for some arrows. Let's get out of here!'"
     selection = gets.chomp.strip
   
     if selection == "1" || selection == "1."
-        puts "Coming soon!"
+      puts "You begin chopping wood"
+      puts "Press Enter to return to the Main Menu"
+      loop do
+        puts "Chop chop chop"
+        woodcuttingXP = +1 
+        charXP = +1 
+        sleep(1)
+        if IO.select([STDIN], nil, nil, 0)
+          STDIN.gets
+          break
+        end
+      end 
+
     elsif selection == "2" || selection == "2."
         puts "Goodbye!"
         puts
