@@ -75,7 +75,7 @@ elsif pcclass.downcase == "warrior" || pcclass.downcase == "fighter" || pcclass.
 elsif pcclass.downcase == "mage" || pcclass.downcase == "sorcerer" || pcclass.downcase == "wizard"
   puts
   puts "'Oh...a #{pcclass.downcase}? ....Well, I suppose brains over brawn has its merits in a situation like this. Just don't go zapping me accidentally, you hear?'"
-elsif pc.downcase == "no class" || pcclass.downcase == "classless"
+elsif pcclass.downcase == "no class" || pcclass.downcase == "classless"
   puts "#{pcclass.upcase} eh? No problem, you'll figure it out as we go."
 else
   puts
@@ -127,19 +127,6 @@ Keep an eye out for some arrows. Let's get out of here!'"
   woodcuttingXP = 0
   charXP = 0
 
-  if woodcuttingXP >= 100
-    woodcuttingLevel += 1
-    puts "You have reached level #{woodcuttingLevel}!"
-    woodcuttingXP = 0
-  end
-  #woodcutting level up system
-  
-  if charXP >= 1000
-    charLevel += 1
-    puts "You have reached level #{charLevel}!"
-    charXP = 0
-  end
-#character level up system
 
   loop do
     
@@ -160,20 +147,34 @@ Keep an eye out for some arrows. Let's get out of here!'"
         woodcuttingXP += 2 
         charXP += 5 
         wood += 3
+        if woodcuttingXP >= 100
+          woodcuttingLevel += 1
+          puts "You have reached level #{woodcuttingLevel}!"
+          woodcuttingXP = 0
+        end
+        #woodcutting level up system
+        
+        if charXP >= 1000
+          charLevel += 1
+          puts "You have reached level #{charLevel}!"
+          charXP = 0
+        end
+      #character level up system
+      
         sleep(1)
         if IO.select([STDIN], nil, nil, 0)
           STDIN.gets
-          puts "You have have #{wood} wood"
+          puts "You have #{wood} pieces of wood"
           puts "You have achieved level #{woodcuttingLevel} woodcutting"
           puts "You have #{charXP} experience points"
           break
         end
       end 
 
-    elsif selection.strip == "2" || selection.strip == "2."
+    elsif selection == "2" || selection == "2."
         puts "Placeholder"
 
-    elsif selection.strip == "3" || selection.strip == "3."
+    elsif selection == "3" || selection == "3."
         puts "Goodbye!"
         puts
         exit
